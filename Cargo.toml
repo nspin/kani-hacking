@@ -1,0 +1,7 @@
+[workspace]
+
+resolver = "2"
+
+members = [
+    "crates/sel4-bitfield-ops",
+]
