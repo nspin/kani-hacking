@@ -1,0 +1,3 @@
+[submodule "kani"]
+	path = kani
+	url = git@github.com:nspin/kani.git
