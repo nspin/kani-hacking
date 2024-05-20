@@ -12,6 +12,8 @@ container_name := $(id)
 
 mount_params := type=bind,src=$(abspath $(work_root)),dst=/work
 
+toolchain_toml := $(work_root)/kani/rust-toolchain.toml
+
 .PHONY: none
 none:
 
@@ -20,7 +22,7 @@ build:
 	docker build \
 		--build-arg UID=$$(id -u) \
 		--build-arg GID=$$(id -g) \
-		--build-arg TOOLCHAIN=$$(sed -rn 's,channel = "(.*)",\1,p' $(work_root)/rust-toolchain.toml) \
+		--build-arg TOOLCHAIN=$$(sed -rn 's,channel = "(.*)",\1,p' $(toolchain_toml)) \
 		-t $(image_tag) .
 
 .PHONY: runi
